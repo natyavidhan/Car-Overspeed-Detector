@@ -1,0 +1,43 @@
+{% extends 'adminbase.html' %}
+{% block title %}Admininstrator{% endblock title %}
+{% block content %}
+<div class="d-grid gap-2 d-md-flex justify-content-md-start mt-2 container">
+    <a class="btn btn-outline-dark btn-sm mx-1 btn-lg" aria-current="page" href="/admin">Back</a>
+</div>
+
+    <div class="container">
+        
+        <h1 class="text-center">Administrator Dashboard</h1>
+        <div class="container">
+            <h2>Police Station 1</h2>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Latitude</th>
+                    <th scope="col">Longitude</th>
+                    <th scope="col">Car Number</th>
+                    <th scope="col">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for case in cases %}
+                    <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{case['Date']}}</td>
+                        <td>{{case['Time']}}</td>
+                        <td>{{case['latitude']}}</td>
+                        <td>{{case['longitude']}}</td>
+                        <td>{{case['Car Number']}}</td>
+                        <td>
+                        <a href="/delete_1/?date={{case['Date']}}&time={{case['Time']}}&car={{case['Car Number']}}" type="button" class="btn btn-outline-dark btn-sm mx-1">Action Taken (Delete)</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

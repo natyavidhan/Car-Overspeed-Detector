@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+    <div class="container mt-5 text-center">
+      <h1>Car Overspeeding Detection System</h1>
+      <h6>Car Overspeeding Detection System Is An Open source system which is used for reducing overspeeding <br>by detecting the speed of the car and reporting them in the database</h6>
+    </div>
+    <div class="card-group text-center container-sm mt-5">
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        
+        <div class="card-body text-dark">
+          <h5 class="card-title">Storage</h5>
+          <p class="card-text">Data of every overspeeding case is stored inside a MongoDB cluster which is very safe.</p>
+        </div>
+      </div>
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        
+        <div class="card-body text-dark">
+          <h5 class="card-title">IoT</h5>
+          <p class="card-text">Data is sent through a NodeMCU i.e. An ESP8266 which is very simple but effective.</p>
+        </div>
+      </div>
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        
+        <div class="card-body text-dark">
+          <h5 class="card-title">Server</h5>
+          <p class="card-text">The backend server is hosted on repl.it for now, but it will be changed to heroku after the development is complete.</p>
+        </div>
+      </div>
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        
+        <div class="card-body text-dark">
+          <h5 class="card-title">Language</h5>
+          <p class="card-text">The Backend server is coded in python while the system itself is coded in c++ (arduino language)</p>
+        </div>
+      </div>
+      <div class="card border-dark mb-3" style="max-width: 18rem;">
+        
+        <div class="card-body text-dark">
+          <h5 class="card-title">Hardware</h5>
+          <p class="card-text">The Data is sended with a NodeMCU (ESP8266) and the In-Car Components i.e. the buzzer, led's and LCD screen are controlled with an Arduino UNO</p>
+        </div>
+      </div>
+    </div>
+{% endblock %}
