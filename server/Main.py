@@ -30,22 +30,11 @@ def add_value():
         time = x.strftime("%I:%M:%S %p")
         arra = {"Date": date, "Time": time, "latitude": lat,
                 "longitude": lon, "Car Number": car}
-        if car == None:
+        if car is None or lon is None or lat is None or station is None:
             return "Aw Snap! Error Occured! Beep Boop Boop Beep!"
-        elif lon == None:
-            return "Aw Snap! Error Occured! Beep Boop Boop Beep!"
-        elif lat == None:
-            return "Aw Snap! Error Occured! Beep Boop Boop Beep!"
-        elif station == None:
-            return "Aw Snap! Error Occured! Beep Boop Boop Beep!"
-        if int(station) == 1:
-            table = db['station_one']
-            table.insert_one(arra)
-            return "values added"
-        else:
-            table = db['station_two']
-            table.insert_one(arra)
-            return "values added"
+        table = db['station_one'] if int(station) == 1 else db['station_two']
+        table.insert_one(arra)
+        return "values added"
     except:
         return "Aw Snap! Error Occured! Beep Boop Boop Beep!"
 
@@ -64,14 +53,13 @@ def my_form_post():
     # print(processed_password)
     a = table.find_one(
         {'mail': mail, 'password': password})
-    if a == None:
+    if a is None:
         return "Aw Snap! Wrong Password or Email!"
-    else:
-        sta1 = db['station_one']
-        b = sta1.find({})
-        sta2 = db['station_two']
-        c = sta2.find({})
-        return render_template('admin.html', cases1=b, cases2=c)
+    sta1 = db['station_one']
+    b = sta1.find({})
+    sta2 = db['station_two']
+    c = sta2.find({})
+    return render_template('admin.html', cases1=b, cases2=c)
 
 @app.route('/station_1')
 def sta1():
